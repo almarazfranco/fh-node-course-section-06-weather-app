@@ -127,50 +127,8 @@ const inquirerSelectPlace = async (places, cancel, choceMessage) => {
   return await inquirer.prompt(questions)
 }
 
-//! ====================================== > Complete task
-const inquirerCheckCompletedTask = async (tasks) => {
-  
-  console.clear();
-  console.log('\n')
-
-  const choices = tasks.map((t) => {
-    return {
-      value: t.id,
-      name: `${t.description}`,
-      checked: t.completionDate != null
-    }
-  })
-
-  const questions = [
-    {
-      type: 'checkbox',
-      name: 'ids',
-      message: 'Check',
-      choices: choices
-    }
-  ]
-  return await inquirer.prompt(questions)
-}
-
-
-//! ====================================== > Confirm
-const inquirerConfirm = async (message) => {
-
-  const questions = [
-    {
-      type: 'confirm',
-      name: 'ok',
-      message: message,
-    }
-  ]
-  return await inquirer.prompt(questions)
-}
-
-
 
 export {
-  inquirerCheckCompletedTask,
-  inquirerConfirm,
   inquirerMenu,
   inquirerPauseInput,
   inquirerReadInput,
